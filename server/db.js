@@ -1,9 +1,22 @@
 const Database = require("better-sqlite3");
-const db = new Database("database.db");
-
 const fs = require("fs");
-const schema = fs.readFileSync(__dirname + "/schema.sql", "utf8");
+const path = require("path");
 
-db.exec(schema);
+// Абсолютный путь к файлу базы (можно хранить вне папки сервера)
+const dbPath = path.join(__dirname, "/database.db");
+
+// Создание или открытие базы
+const db = new Database(dbPath);
+
+// Абсолютный путь к файлу схемы
+const schemaPath = path.join(__dirname, "schema.sql");
+
+// Чтение и выполнение схемы (если нужно)
+if (fs.existsSync(schemaPath)) {
+  const schema = fs.readFileSync(schemaPath, "utf8");
+  db.exec(schema);
+}
+
+console.log("SQLite база подключена:", dbPath);
 
 module.exports = db;

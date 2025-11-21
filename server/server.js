@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 // Разрешаем CORS только для фронтенда
 app.use(
   cors({
-    origin: "https://192.168.0.165:3000",
+    origin: "https://192.168.0.165:5173",
     credentials: true,
   })
 );
@@ -39,9 +39,15 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.use((err, req, res, next) => {
+  console.error("🔥 SERVER ERROR:", err);
+  res.status(500).json({ error: "Server error", details: err.message });
+});
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/auth", authRoutes);
+app.use("/user", require("./routes/user"));
+app.use("/posts", require("./routes/posts"));
 
 // Создаём HTTPS сервер
 const httpsServer = https.createServer(credentials, app);

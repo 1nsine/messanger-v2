@@ -1,0 +1,7 @@
+.navbar {
+  padding: 0.5rem 4rem;
+}
+
+.custom-dropdown {
+  min-width: 250px; /* шире, чем кнопка */
+}
