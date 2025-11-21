@@ -1,0 +1,43 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+pids
+*.pid
+*.seed
+
+# SQLite
+*.sqlite
+*.db
+*.sqlite3
+
+# Build output (React)
+client/build/
+dist/
+
+# MacOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# SSL certificates (если не хотите коммитить приватные ключи)
+certs/
+
+# Misc
+*.bak
+*.swp
+

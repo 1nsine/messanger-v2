@@ -1,0 +1,112 @@
+.form-login {
+  width: 25%;
+  min-height: 50%;
+  border: 2px solid black;
+  border-radius: 1.4rem;
+  padding: 1rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.form-login h2 {
+  margin: 2rem 0;
+}
+
+[data-bs-theme="dark"] .btn-login {
+  border: 1px solid whitesmoke;
+}
+
+[data-bs-theme="dark"] .btn-login:hover {
+  color: black;
+  background-color: whitesmoke;
+}
+
+.btn-login {
+  margin: 2rem 0;
+  width: 100%;
+  border: 1px solid #333;
+  transition: 0.5s;
+}
+
+.btn-login:hover {
+  color: whitesmoke;
+  background-color: black;
+}
+
+.form-control:focus {
+  border: 1px solid black;
+  box-shadow: none;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+  border: 1px solid whitesmoke;
+}
+
+.underline-center {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  width: fit-content;
+}
+
+[data-bs-theme="dark"] .underline-center::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 2px;
+  background-color: whitesmoke;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.underline-center:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.underline-center::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.p-absolute {
+  position: absolute;
+  top: 10;
+  left: 0;
+}
+
+.password {
+  position: relative;
+}
+
+.btn-eye {
+  position: absolute;
+  top: 55%;
+  right: 0.5rem;
+}
+
+.form-text {
+  text-align: start;
+}
+
+.fs-8 {
+  font-size: 12px;
+}
+
+.invisible {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.text-danger {
+  opacity: 1;
+}
