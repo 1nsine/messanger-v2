@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
+
 import api from "../config/axios";
+const Postcard = lazy(() => import("../components/Postcard"));
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -25,19 +27,11 @@ export default function Home() {
         <p>Постов пока нет</p>
       ) : (
         <div className="row g-3">
-          {posts.map((post) => (
-            <div key={post.id} className="col-12 col-md-6">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{post.username}</h5>
-                  <p className="card-text">{post.text}</p>
-                  <small className="text-muted">
-                    {new Date(post.created_at).toLocaleString()}
-                  </small>
-                </div>
-              </div>
-            </div>
-          ))}
+          <Suspense fallback={<div>Загрузка постов...</div>}>
+            {posts.map((post) => (
+              <Postcard key={post.id} post={post} />
+            ))}
+          </Suspense>
         </div>
       )}
     </main>

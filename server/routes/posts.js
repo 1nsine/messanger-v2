@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
   try {
     const posts = db
       .prepare(
-        `SELECT posts.*, users.username
+        `SELECT posts.*, users.username, users.firstName, users.lastName, users.avatar
          FROM posts
          JOIN users ON posts.user_id = users.id
          ORDER BY posts.created_at DESC`
